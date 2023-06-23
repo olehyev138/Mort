@@ -11,10 +11,10 @@ import {
 import useSettings from '../hook/useSettings';
 import MobileNav from './innerSideBar/innerSieBarMobile';
 import useCollapse from '../hook/useCollapsed';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function DashboardLayout() {
-  const theme = useTheme();
-  const { themeMode } = useSettings();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const [mobileScreen, setmobileScreen] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,14 @@ function DashboardLayout() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const {collapsed, handleClick} = useCollapse();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      loginWithRedirect();
+    }
+  }, [])
+
+  const { collapsed, handleClick } = useCollapse();
 
   return (
     <>
@@ -35,7 +42,7 @@ function DashboardLayout() {
         <>
           <Header />
           <SideBarWrapper>
-              {/* @ts-ignore */}
+            {/* @ts-ignore */}
             <SideBarInnerWrapper collapsed={collapsed}>
               <SideBarMobile />
             </SideBarInnerWrapper>
@@ -49,15 +56,15 @@ function DashboardLayout() {
           <InnerHeaderWrapper>
             <Header />
           </InnerHeaderWrapper>
-            <SideBarWrapper >
-              <SideBarInnerWrapper >
-                <SideBar />
-              </SideBarInnerWrapper>
-              <OutletWrapper >
-                <Outlet />
-              </OutletWrapper>
-            </SideBarWrapper>
-          
+          <SideBarWrapper >
+            <SideBarInnerWrapper >
+              <SideBar />
+            </SideBarInnerWrapper>
+            <OutletWrapper >
+              <Outlet />
+            </OutletWrapper>
+          </SideBarWrapper>
+
         </MainWrapper>
       }
 

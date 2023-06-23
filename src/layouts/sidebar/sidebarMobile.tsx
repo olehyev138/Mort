@@ -13,7 +13,7 @@ import { OuterBox, UsernameBox, Username, ArrowIconWrapper, DownArrowIcon, Heade
 import { useAuth0 } from "@auth0/auth0-react";
 
 const SideBarMobile = () => {
-    const { isAuthenticated, loginWithRedirect, logout, user} = useAuth0();  
+    const { isAuthenticated, logout, user} = useAuth0();  
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
     const navigate = useNavigate();
     const { onToggleMode, themeMode, openDrawerMobile, setOpenDrawerMobile, handleToggleDrawerMobile} = useSettings();
@@ -141,7 +141,7 @@ const SideBarMobile = () => {
                            <ListItemIcon>
                            <HeaderRightIcon src={`${themeMode === 'light' ? '/images/svgs/logout.svg' : '/images/svgs/logout-dark.svg'}`} themeMode={themeMode} />
                            </ListItemIcon>
-                           {isAuthenticated ?       
+                           {isAuthenticated &&      
                             (<ListItemText
                               primary="Log Out"
                               sx={{
@@ -153,18 +153,6 @@ const SideBarMobile = () => {
                               }}
                               onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
                            />)
-                           :
-                          ( <ListItemText
-                           primary="Log In"
-                           sx={{
-                              '& .MuiTypography-root': {
-                                 fontFamily: 'Bai Jamjuree',
-                                 fontWeight: 500,
-                                 fontSize: '16px'
-                              }
-                           }}
-                           onClick={() => loginWithRedirect()}
-                        />)    
                         }
                         </ListItemButton>
                      </ListItem>

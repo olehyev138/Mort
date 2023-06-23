@@ -16,7 +16,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = ({ props }: any) => {
 
-   const { isAuthenticated, loginWithRedirect, logout, user} = useAuth0();   
+   const { isAuthenticated, logout, user} = useAuth0();   
    const { themeMode, handleToggleDrawer } = useSettings();
    const [isSmallScreen, setisSmallScreen] = useState(false);
    const navigate = useNavigate();
@@ -129,7 +129,7 @@ const Header = ({ props }: any) => {
                            <ListItemIcon>
                               <HeaderRightIcon src={`${themeMode === 'light' ? '/images/svgs/logout.svg' : '/images/svgs/logout-dark.svg'}`} themeMode={themeMode} />
                            </ListItemIcon>
-                           {isAuthenticated ?       
+                           {isAuthenticated &&      
                             (<ListItemText
                               primary="Log Out"
                               sx={{
@@ -141,18 +141,6 @@ const Header = ({ props }: any) => {
                               }}
                               onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
                            />)
-                           :
-                          ( <ListItemText
-                           primary="Log In"
-                           sx={{
-                              '& .MuiTypography-root': {
-                                 fontFamily: 'Bai Jamjuree',
-                                 fontWeight: 500,
-                                 fontSize: '16px'
-                              }
-                           }}
-                           onClick={() => loginWithRedirect()}
-                        />)    
                         }
                         </ListItemButton>
                      </ListItem>

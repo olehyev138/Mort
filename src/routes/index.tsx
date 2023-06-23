@@ -12,7 +12,6 @@ import Home from '../pages/home';
 import SettingsPage from '../pages/settings';
 import InnerSideBarMobileForSettingsPage from '../pages/settings/components/innerSideBarMobile';
 import { useTheme, useMediaQuery } from '@mui/material';
-import ProtectedRoute from './protectedRoute';
 
 const Router = () => {
   const theme = useTheme()
@@ -24,43 +23,44 @@ const Router = () => {
         { path: '/', element: <Navigate to="/home" replace />, index: true },
         {
           path: 'home',
-          element: <ProtectedRoute Component={Home} />
+          element: <Home />
         },
         {
           path: 'home/:header',
-          element: <ProtectedRoute Component={Home} />
+          element: <Home />
         },
         {
             path: 'account',
-            element: <ProtectedRoute Component={SettingsPage} />
+            element: <SettingsPage />
         },
         {
             path: 'archive',
-            element: <ProtectedRoute Component={ArchivePage} />
+            element: <ArchivePage />
         },
         {
           path: 'settings',
-          element: (smDown ? <ProtectedRoute Component={InnerSideBarMobileForSettingsPage} /> : <Navigate to="/account" replace />),
+          element: (smDown ? <InnerSideBarMobileForSettingsPage /> : <Navigate to="/account" replace />),
           index: true
         },
         {
           path: 'teams',
-          element: <ProtectedRoute Component={TeamsPage} />
+          element: <TeamsPage />
         },
         {
           path: 'notification',
-          element: <ProtectedRoute Component={NotificationPage} />
+          element: <NotificationPage />
         },
         {
           path: 'integration',
-          element: <ProtectedRoute Component={IntegrationPage} />
-        },
-        {
-          path: 'middle',
-          element: <MiddlePage />
-        },
+          element: <IntegrationPage />
+        }
       ],
-    }]);
+    },
+    {
+      path: 'middle',
+      element: <MiddlePage />
+    },
+  ]);
 
   return <RouterProvider router={router} />;
 };
