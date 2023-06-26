@@ -40,10 +40,10 @@ export const FormGroupWrapper = styled(FormGroup)(({ theme }) => ({
   marginTop: '21px'
 }));
 
-export const TrashIconModalWrapper = styled(Box)(({ theme }) => ({
+export const TrashIconModalWrapper = styled(Box)(({ theme, themeMode }: any) => ({
   display: 'flex',
   justifyContent: 'center',
-  background: '#F7F6F4',
+  backgroundColor: themeMode === "light"? "#F7F6F4" : "#465359",
   height: '80px',
   width: '80px',
   margin: '0 auto',

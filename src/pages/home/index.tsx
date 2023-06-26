@@ -16,6 +16,7 @@ import {
     , PaperWrapper, IconButtonWrapper, InputBaseWrapper, VersionBox, VersionText, SendBtn, BackArrow,
     MobileHeader, BackArrowWrapper, ButtonWrapperMobile, VersionContainer, DownArrow
     ,SuggestionContainer, SuggestionInnerWrapper, Text, SuggestionBtnWrapper,SummaryBtn, IncomeBtn, LoanBtn
+    , MsgDownArrowBox
 } from "./home.style";
 import MobileNav from "../../layouts/innerSideBar/innerSieBarMobile";
 import { ButtonComponent, ButtonInnerComponent, HeaderButton, HeaderIconWrapper, HeaderRightIcon } from "../../layouts/header/header.style";
@@ -146,9 +147,10 @@ const Home = () => {
                                     </PaperWrapper>
                                 </Grid2>
                                 <Grid2 xs={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={() => ref?.current?.scrollIntoView({ behavior: 'smooth' })}>
-                                    <Box sx={{ height: '24px', width: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <DownArrow src="/images/svgs/arrowDownLight.svg" />
-                                    </Box>
+                                    {/* @ts-ignore */}
+                                    <MsgDownArrowBox themeMode={themeMode}>
+                                        <DownArrow src={`${themeMode === 'light' ? '/images/svgs/arrowDownLight.svg' : '/images/svgs/arrowDown.svg'}`} />
+                                    </MsgDownArrowBox>
                                 </Grid2>
 
                             </Grid2>

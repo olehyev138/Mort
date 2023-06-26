@@ -10,7 +10,6 @@ export const SideNavComponent = styled(Box)(({ theme, collapsed }: any) => ({
   background: theme.palette.background.default,
   width: `${collapsed ? '50px' : '161px'}`,
   [theme.breakpoints.down('lg')]: {
-    // width: 136,
     width: `${collapsed ? '50px' : '136px'}`,
   },
   [theme.breakpoints.down('md')]: {
@@ -18,7 +17,6 @@ export const SideNavComponent = styled(Box)(({ theme, collapsed }: any) => ({
   },
   [theme.breakpoints.down('sm')]: {
     width: `${collapsed ? '50px' : '355px'}`,
-    // width: 355,
     height: '100vh'
   },
 }));
@@ -37,11 +35,9 @@ export const SideNavIconComponent: any = styled(ListItem)(({ theme , collapsed}:
   [theme.breakpoints.down('md')]: {
     margin: '10px 0px',
     width: `${collapsed ? '75px' : '52px'}`,
-    // width: 52,
     height: '70px',
   },
   [theme.breakpoints.down('sm')]: {
-    // width: 355,
     width: `${collapsed ? '75px' : '355px'}`,
     justifyContent: 'start',
     margin: '0px 16px',
@@ -111,9 +107,9 @@ export const MenuFontComponent = styled(Typography)(({ theme }) => ({
 }));
 
 
-export const SimpleDivider = styled(Divider)(({ theme }) => ({
+export const SimpleDivider = styled(Divider)(({ theme, collapsed }: any) => ({
   width: '65%',
-  margin: '12px 0px',
+  margin:  '12px 0px',
   background: theme.palette.text.primary,
   opacity: 0.2
 }));
@@ -136,19 +132,15 @@ export const SideBarWrapper = styled(Box)(({ theme }) => ({
 }));
 
 export const SideBarInnerWrapper = styled(Box)(({ theme, collapsed }: any) => ({
-  // minWidth: 161,
   mintWidth: `${collapsed ? '55px' : '161px'}`,
   [theme.breakpoints.down('lg')]: {
-    // minWidth: 136
     mintWidth: `${collapsed ? '55px' : '136px'}`,
   },
   [theme.breakpoints.down('md')]: {
-    // minWidth: 50
     mintWidth: `${collapsed ? '50px' : '50px'}`,
     
   },
   [theme.breakpoints.down('sm')]: {
-    // width: 355
     mintWidth: `${collapsed ? '50px' : '355px'}`,
 
   },
@@ -184,4 +176,10 @@ export const SuperAdmin = styled(Typography)(({theme}) => ({
    fontFamily: 'Roboto Slab', 
    color: theme.palette.text.primary, 
    opacity: '0.8'
-}))
+}));
+
+export const DividerBox = styled(Box)(({ theme, collapsed }: any) => ({
+  display: 'flex',
+  justifyContent: `${collapsed ? 'center' : 'start' }`,
+  marginLeft: '8px',
+}));

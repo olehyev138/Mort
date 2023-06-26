@@ -91,7 +91,7 @@ const ArchivePage = () => {
                                                             <ListItemMonths onClick={() => clickHandlerMonth(id)}>
                                                                 <ListItemText>{item.title}</ListItemText>
                                                                 <ListItemIcon>
-                                                                    {activeMonthOfYear[id] ? <ArrowDownIcon width='16' height='16' /> : <ArrowIcon width='16' height='16' />}
+                                                                    {activeMonthOfYear[id] ? <ArrowDownIcon width='16' height='16'/> : <ArrowIcon width='16' height='16' />}
                                                                 </ListItemIcon>
                                                             </ListItemMonths>
                                                             {item.ids.map((item: any) => (

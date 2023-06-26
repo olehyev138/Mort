@@ -11,7 +11,9 @@ export const ModalFooterWrapper: any = styled(Box)(({theme})=>({
 export const FooterButtonWrapper = styled(Box)(({theme, actionButtonText, cancelButtonText}: any)=>({
     background: theme.palette.background.paper,
     display: 'flex',
-    justifyContent: `${actionButtonText !== '' && cancelButtonText !=='' ? 'space-between' : 'center'}`
+    justifyContent: `${actionButtonText !== '' && cancelButtonText !=='' ? 'space-between' : 'center'}`,
+    width: '90%',
+    margin: '0 auto',
 }));
 
 export const CancelBtn = styled(Button)(({ theme }) => ({
@@ -26,8 +28,8 @@ export const CancelBtn = styled(Button)(({ theme }) => ({
   }));
 
   export const ImportBtn = styled(Button)(({ theme }) => ({
-    background: theme.palette.primary.light, 
-    color: theme.palette.background.paper, 
+    color: theme.palette.text.white,
+    background: theme.palette.primary.light,
     fontSize: '20px', 
     fontWeight: 500,
     lineHeight: '28px',

@@ -61,19 +61,19 @@ const Header = ({ props }: any) => {
                      <ButtonComponent>
                         <ButtonInnerComponent>
                            {/* @ts-ignore */}
-                           <HeaderButton variant="contained" active={location.pathname.includes('/loans')} themeMode={themeMode} onClick={() => navigate("home/loans")}>
+                           <HeaderButton variant="contained" active={location.pathname.includes('/loans')} themeMode={themeMode} onClick={() => navigate("/loans")}>
                               LOANS
                            </HeaderButton>
                            {/* @ts-ignore */}
-                           <HeaderButton variant="contained" active={location.pathname.includes('/fnma')} themeMode={themeMode} onClick={() => navigate("home/fnma")}>
+                           <HeaderButton variant="contained" active={location.pathname.includes('/fnma')} themeMode={themeMode} onClick={() => navigate("/fnma")}>
                               FNMA
                            </HeaderButton>
                            {/* @ts-ignore */}
-                           <HeaderButton variant="contained" active={location.pathname.includes('/fhlmcs')} themeMode={themeMode} onClick={() => navigate("home/fhlmc")}>
+                           <HeaderButton variant="contained" active={location.pathname.includes('/fhlmcs')} themeMode={themeMode} onClick={() => navigate("/fhlmc")}>
                               FHLMC
                            </HeaderButton>
                            {/* @ts-ignore */}
-                           <HeaderButton variant="contained" active={location.pathname.includes('/fha')} themeMode={themeMode} onClick={() => navigate("home/fha")}>
+                           <HeaderButton variant="contained" active={location.pathname.includes('/fha')} themeMode={themeMode} onClick={() => navigate("/fha")}>
                               FHA
                            </HeaderButton>
                            <PlusBtnIcon onClick={handleopenModal}>

@@ -34,6 +34,19 @@ export const LikeIcon = styled('img')(({ theme }) => ({
     alignItems: 'center'
   }));
 
+  
+  export const CrossIconBox = styled(Box)(({theme,themeMode }: any) => ({
+    borderRadius: '50%',
+    height: '36px',
+    width: '36px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: themeMode === "light" ? "alpha(#03363D, 0.80)" : "#465359",
+
+  }));
+  
+
   export const CrossIcon = styled('img')(({ }) => ({
     height: '24px',
     width: '24px',

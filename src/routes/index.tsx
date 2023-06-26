@@ -26,12 +26,13 @@ const Router = () => {
           element: <Home />
         },
         {
-          path: 'home/:header',
+          path: '/:header',
           element: <Home />
         },
         {
             path: 'account',
-            element: <SettingsPage />
+            element: <SettingsPage />,
+
         },
         {
             path: 'archive',

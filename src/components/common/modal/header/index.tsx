@@ -2,7 +2,7 @@ import React from "react";
 import useSettings from "../../../../hook/useSettings";
 import {
     ModalHeaderWrapper, HeaderText, LikeIcon,
-    LikeIconWrapper, CrossIcon
+    LikeIconWrapper, CrossIcon, CrossIconBox
 } from "./modal.header.style";
 const ModalHeader = (props: any) => {
     const { themeMode } = useSettings();
@@ -16,7 +16,11 @@ const ModalHeader = (props: any) => {
                         {headerText}
                     </HeaderText>)}
                 </LikeIconWrapper>
-                {crossIcon && (<CrossIcon src="/images/svgs/crossIcon.svg" onClick={()=> handleClose()}/>)}
+                {crossIcon && (
+                    // @ts-ignore
+                <CrossIconBox themeMode={themeMode}>
+                    <CrossIcon src={`${themeMode === 'light' ? '/images/svgs/crossIcon.svg' : '/images/svgs/cross-dark.svg'}`} onClick={()=> handleClose()}/>
+                </CrossIconBox>)}
             </ModalHeaderWrapper>
         </>
     )

@@ -222,6 +222,7 @@ export const IconButtonWrapper = styled(IconButton)<any>(({ theme, themeMode }: 
 }));
 
 export const InputBaseWrapper = styled(TextareaAutosize)(({ theme }) => ({
+  fontFamily: 'Bai Jamjuree',
   marginLeft: '15px',
   flex: 1,
   fontSize: '16px',
@@ -252,13 +253,26 @@ export const VersionText = styled(Typography)(({ theme }) => ({
 
 }));
 
+
+export const MsgDownArrowBox = styled(Box)(({ theme, themeMode }: any) => ({
+  height: '56px',
+  width: '56px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: themeMode === "light"? "#F7F6F4" : "#465359",
+  borderRadius: '50%'
+}));
+
 export const SendBtn = styled(Button)(({ theme }) => ({
   background: theme.palette.primary.light,
   color: theme.palette.text.white,
   fontSize: '16px',
   fontWeight: 500,
   lineHeight: '16px',
-  padding: '10px 20px',
+  height: '36px',
+  width:'78px',
+  textTransform: 'capitalize',
   borderRadius: '10px',
   "&:hover": {
     background: theme.palette.primary.light,
@@ -480,8 +494,8 @@ export const VersionContainer = styled(Box)(({ theme }) => ({
 
 
 export const DownArrow = styled('img')(({ theme }) => ({
-  height: '24px',
-  width: '24px',
+  height: '16px',
+  width: '16px',
   cursor: 'pointer',
 }));
 
@@ -513,11 +527,11 @@ export const SuggestionBtnWrapper = styled(Box)(({ theme }) => ({
 export const SummaryBtn = styled(Button)(({ theme, themeMode }: any) => ({
   minWidth: '200px',
   padding: '12px 14px',
-  background: `${themeMode === 'light' ? "#EFF3F4" : "alpha(#E3F4F2, 30)" }`,
-  color: `${themeMode === 'light' ? "#03363D" : "#fff" }`,
+  background: `${themeMode === 'light' ? "#EFF3F4" : "alpha(#E3F4F2, 30)"}`,
+  color: `${themeMode === 'light' ? "#03363D" : "#fff"}`,
   fontSize: '12px',
   fontWeight: 400,
-  fontFamily:'DM Sans',
+  fontFamily: 'DM Sans',
   lineHeight: '14.4px',
   borderRadius: '9px',
   "&:hover": {
@@ -528,11 +542,11 @@ export const SummaryBtn = styled(Button)(({ theme, themeMode }: any) => ({
 export const IncomeBtn = styled(Button)(({ theme, themeMode }: any) => ({
   minWidth: '250px',
   padding: '12px 14px',
-  background: `${themeMode === 'light' ? "#FBEBEA" : "alpha(#E3F4F2, 30)" }`,
-  color: `${themeMode === 'light' ? "#03363D" : "#fff" }`,
+  background: `${themeMode === 'light' ? "#FBEBEA" : "alpha(#E3F4F2, 30)"}`,
+  color: `${themeMode === 'light' ? "#03363D" : "#fff"}`,
   fontSize: '12px',
   fontWeight: 400,
-  fontFamily:'DM Sans',
+  fontFamily: 'DM Sans',
   lineHeight: '14.4px',
   borderRadius: '9px',
   marginLeft: '12px',
@@ -544,11 +558,11 @@ export const IncomeBtn = styled(Button)(({ theme, themeMode }: any) => ({
 export const LoanBtn = styled(Button)(({ theme, themeMode }: any) => ({
   minWidth: '220px',
   padding: '12px 14px',
-  background: `${themeMode === 'light' ? "#E3F4F2" : "alpha(#E3F4F2, 30)" }`,
-  color: `${themeMode === 'light' ? "#03363D" : "#fff" }`,
+  background: `${themeMode === 'light' ? "#E3F4F2" : "alpha(#E3F4F2, 30)"}`,
+  color: `${themeMode === 'light' ? "#03363D" : "#fff"}`,
   fontSize: '12px',
   fontWeight: 400,
-  fontFamily:'DM Sans',
+  fontFamily: 'DM Sans',
   lineHeight: '14.4px',
   borderRadius: '9px',
   marginLeft: '12px',

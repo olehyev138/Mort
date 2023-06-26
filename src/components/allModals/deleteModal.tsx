@@ -5,8 +5,10 @@ import {
     TrashIconModalWrapper, DeleteModalHeading, SubheadingWrapper,
     SubheadingInner, DeleteModalSubHeading
 } from "./allModals.style";
+import useSettings from "../../hook/useSettings";
 
 const DeleteModal = ({ openDelete, handleCloseDelete }: any) => {
+    const themeMode = useSettings();
     return(
     <>
       {/* Modal For delete button */}
@@ -20,7 +22,8 @@ const DeleteModal = ({ openDelete, handleCloseDelete }: any) => {
                 actionButtonText="Delete"
             >
                 <ModalBodyWrapper>
-                    <TrashIconModalWrapper >
+                    {/* @ts-ignore */}
+                    <TrashIconModalWrapper themeMode={themeMode}>
                         <TrashIconModal alt="Modal Trash" src="/images/svgs/trash-modal.svg" />
                     </TrashIconModalWrapper>
                     <DeleteModalBody>
