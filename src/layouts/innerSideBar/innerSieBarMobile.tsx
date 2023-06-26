@@ -13,7 +13,7 @@ import ImportFileModal from "../../components/allModals/importFileModal";
 const MobileNav = (props :any) => {
     const { themeMode } = useSettings();
     const location = useLocation();
-    const listItems = location.pathname === '/home' ? homeDummyData.home : settingsDummyData.settings;
+    const listItems = (location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') ? homeDummyData.home : settingsDummyData.settings;
     const {
         handleOpen,
         handleClose,
@@ -33,9 +33,9 @@ const MobileNav = (props :any) => {
                             <InnerSideBarButton onClick={() => setShowMessages(!showMessages) } pathname={location.pathname}>
                                 <TypographyBox>
                                      <TypographyHeadingSimple>{item.title}</TypographyHeadingSimple>
-                                    {location.pathname === '/home' && (<Typographyid>{item.id}</Typographyid>)}
+                                    {(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') && (<Typographyid>{item.id}</Typographyid>)}
                                 </TypographyBox>
-                                {location.pathname === '/home' && (
+                                {(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') && (
                                     <IconWrapper>
                                         <Icons src={`${themeMode === 'light' ? '/images/svgs/innerArchive.svg': '/images/svgs/archive-dark.svg'}`} />
                                         <Icons src={`${themeMode === 'light' ? '/images/svgs/Sync.svg' : '/images/svgs/Sync-dark.svg'}`} />

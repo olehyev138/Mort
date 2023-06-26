@@ -8,8 +8,8 @@ export const ButtonWrapperComponent = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-export const NewDocButton = styled(Button)(({ theme }) => ({
-  background: theme.palette.background.default,
+export const NewDocButton = styled(Button)(({ theme, themeMode }: any) => ({
+  background: themeMode === "light" ? "#F7F6F4" : "#465359",
   color: theme.palette.text.primary,
   marginRight: '12px',
   padding: '15px',

@@ -16,7 +16,7 @@ import {
     , PaperWrapper, IconButtonWrapper, InputBaseWrapper, VersionBox, VersionText, SendBtn, BackArrow,
     MobileHeader, BackArrowWrapper, ButtonWrapperMobile, VersionContainer, DownArrow
     ,SuggestionContainer, SuggestionInnerWrapper, Text, SuggestionBtnWrapper,SummaryBtn, IncomeBtn, LoanBtn
-    , MsgDownArrowBox
+    , MsgDownArrowBox, MsgMain
 } from "./home.style";
 import MobileNav from "../../layouts/innerSideBar/innerSieBarMobile";
 import { ButtonComponent, ButtonInnerComponent, HeaderButton, HeaderIconWrapper, HeaderRightIcon } from "../../layouts/header/header.style";
@@ -38,7 +38,6 @@ const Home = () => {
     const [openFeedBack, setOpenFeedBack] = React.useState(false);
     const handleOpenFeedBack = () => setOpenFeedBack(true);
     const handleCloseFeedBack = () => setOpenFeedBack(false);
-
 
     const [openDisLikeFeedBack, setOpenDisLikeFeedBack] = React.useState(false);
     const handleOpenDisLikeFeedBack = () => setOpenDisLikeFeedBack(true);
@@ -78,42 +77,45 @@ const Home = () => {
                 <>
                     {/* @ts-ignore */}
                     <HomePageBg themeMode={themeMode} collapsed={collapsed}>
-                        <MsgBoxWrapper>
-                            {messagesDummyData?.message.map((item: any, index: number) => {
-                                return (
-                                    <MsgWrapper ref={index === lastIndex ? ref : null}>
-                                        <AvatarWrapper >
-                                            <AvatarMain >
-                                                <AvatarIcon sx={{ background: 'transparent' }} src={`${item.type === 'question' ? '/images/svgs/profile-2.svg' : '/images/svgs/profile-1.svg'}`} />
-                                            </AvatarMain>
-                                        </AvatarWrapper>
-                                        <QuestionWrapper >
-                                            <QuestionInnerWrapper >
-                                                <QuestionBody >
-                                                    {item.body} {item.type === 'question' && <span style={{ marginLeft: '20px', marginTop: '4px', cursor: 'pointer' }}><EditIcon src={`${themeMode === 'light' ? 'images/svgs/edit-square.svg' : 'images/svgs/edit-square-dark.svg'}`} /></span>}
-                                                </QuestionBody>
-                                            </QuestionInnerWrapper>
-                                        </QuestionWrapper>
-                                        {item.type === 'answer' && (<AnswerWrapper>
-                                            <AnswerInnerWrapper>
-                                                <Grid2 container columns={12}>
-                                                    <Grid2 xs={6}>
-                                                        <LikeIconWrapper>
-                                                            <LikeIcon src={`${themeMode === 'light' ? '/images/svgs/like.svg' : '/images/svgs/like-dark.svg'}`} onClick={() => handleOpenFeedBack()} />
-                                                        </LikeIconWrapper>
+                        <MsgMain>
+                            <MsgBoxWrapper>
+                                {messagesDummyData?.message.map((item: any, index: number) => {
+                                    return (
+                                        <MsgWrapper ref={index === lastIndex ? ref : null}>
+                                            <AvatarWrapper >
+                                                <AvatarMain >
+                                                    <AvatarIcon sx={{ background: 'transparent' }} src={`${item.type === 'question' ? '/images/svgs/profile-2.svg' : '/images/svgs/profile-1.svg'}`} />
+                                                </AvatarMain>
+                                            </AvatarWrapper>
+                                            <QuestionWrapper >
+                                                {/* @ts-ignore */}
+                                                <QuestionInnerWrapper themeMode={themeMode}>
+                                                    <QuestionBody >
+                                                        {item.body} {item.type === 'question' && <span style={{ marginLeft: '20px', marginTop: '4px', cursor: 'pointer' }}><EditIcon src={`${themeMode === 'light' ? 'images/svgs/edit-square.svg' : 'images/svgs/edit-square-dark.svg'}`} /></span>}
+                                                    </QuestionBody>
+                                                </QuestionInnerWrapper>
+                                            </QuestionWrapper>
+                                            {item.type === 'answer' && (<AnswerWrapper>
+                                                <AnswerInnerWrapper>
+                                                    <Grid2 container columns={12}>
+                                                        <Grid2 xs={6}>
+                                                            <LikeIconWrapper>
+                                                                <LikeIcon src={`${themeMode === 'light' ? '/images/svgs/like.svg' : '/images/svgs/like-dark.svg'}`} onClick={() => handleOpenFeedBack()} />
+                                                            </LikeIconWrapper>
+                                                        </Grid2>
+                                                        <Grid2 xs={6}>
+                                                            <DisLikeIconWrapper >
+                                                                <DisLikeIcon src={`${themeMode === 'light' ? '/images/svgs/dislike.svg' : '/images/svgs/dislike-dark.svg'}`} onClick={() => handleOpenDisLikeFeedBack()} />
+                                                            </DisLikeIconWrapper>
+                                                        </Grid2>
                                                     </Grid2>
-                                                    <Grid2 xs={6}>
-                                                        <DisLikeIconWrapper >
-                                                            <DisLikeIcon src={`${themeMode === 'light' ? '/images/svgs/dislike.svg' : '/images/svgs/dislike-dark.svg'}`} onClick={() => handleOpenDisLikeFeedBack()} />
-                                                        </DisLikeIconWrapper>
-                                                    </Grid2>
-                                                </Grid2>
-                                            </AnswerInnerWrapper>
-                                        </AnswerWrapper>)}
-                                    </MsgWrapper>
-                                )
-                            })}
-                        </MsgBoxWrapper>
+                                                </AnswerInnerWrapper>
+                                            </AnswerWrapper>)}
+                                        </MsgWrapper>
+                                    )
+                                })}
+                            </MsgBoxWrapper>
+                        </MsgMain>
                         {/* Suggestion Section Statred Here */}
                         {/* SuggestionBoxWrapper */}
                         <SuggestionContainer >

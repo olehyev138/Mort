@@ -8,7 +8,7 @@ import {
 import useSettings from "../../hook/useSettings";
 
 const DeleteModal = ({ openDelete, handleCloseDelete }: any) => {
-    const themeMode = useSettings();
+    const { themeMode } = useSettings();
     return(
     <>
       {/* Modal For delete button */}

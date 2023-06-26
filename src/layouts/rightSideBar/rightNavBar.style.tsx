@@ -41,8 +41,8 @@ export const Icon = styled('img')(({ theme }) => ({
   cursor: 'pointer'
 }));
 
-export const MainListWrapper = styled(List)(({ theme }) => ({
-  background: theme.palette.background.default,
+export const MainListWrapper = styled(List)(({ theme, themeMode }: any) => ({
+  background: `${themeMode === 'light' ? theme.palette.background.default : '#2E3D43'}`,
 }));
 export const ListWrapper = styled(ListItem)(({ theme }) => ({
   width: '339px',

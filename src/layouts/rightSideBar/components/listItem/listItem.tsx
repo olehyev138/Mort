@@ -8,8 +8,8 @@ import {
 import {
     Icon, CheckBoxText, ListWrapper, Heading, SubHeading, MainListWrapper
 } from '../../rightNavBar.style';
-import UncheckIcon from '../../../../assets/uncheck';
-import CheckIcon from '../../../../assets/check';
+import UnCheckRight from '../../../../assets/unCheckRight';
+import CheckRight from '../../../../assets/checkRight';
 import { docDummyData } from "../../../../dummyData";
 import useSettings from "../../../../hook/useSettings";
 import ArrowDownIcon from "../../../../assets/arrowDown";
@@ -43,7 +43,7 @@ const ListItems = () => {
                     {docDummyData.map((item: any, id: any) => (
                         <>
                             {/* @ts-ignore */}
-                            <CustomListItem active={activeDoc[id]}>
+                            <CustomListItem active={activeDoc[id]} themeMode={themeMode}>
                                 <CustomListItemBox onClick={() => clickHandler(id)}>
                                     <ListHeadingWrapper >
                                         <ListHeading>{item.title}</ListHeading>
@@ -55,16 +55,19 @@ const ListItems = () => {
                                 </CustomListItemBox>
                                 {activeDoc[id] && (
                                     <>
-                                    <MainListWrapper>
+                                    {/* @ts-ignore */}
+                                    <MainListWrapper themeMode={themeMode}>
                                         {item.innerItems.map((item: any) => (
                                             <>
                                             <ListWrapper>
                                                 <CheckBoxText>
                                                     <Checkbox
-                                                        icon={<UncheckIcon />}
-                                                        checkedIcon={<CheckIcon />}
-                                                        defaultChecked />
-                                                    <Box>
+                                                        icon={<UnCheckRight />}
+                                                        checkedIcon={<CheckRight />}
+                                                        defaultChecked 
+                                                        sx={{ paddingLeft: 0 }}
+                                                    />
+                                                    <Box sx={{ marginTop: '12px' }}>
                                                         <Heading>{item.title}</Heading>
                                                         <SubHeading>{item.subtitle}</SubHeading>
                                                     </Box>

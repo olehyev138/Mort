@@ -5,10 +5,11 @@ import { Divider } from "@mui/material";
 
 export const SideNavComponent = styled(Box)(({ theme, collapsed }: any) => ({
   height: 'calc(100vh - 100px)',
-  overflowY: 'scroll',
+  overflowY: 'auto',
   overflowX: 'hidden',
+  minWidth: `${collapsed ? '58px' : '161px'}`,
   background: theme.palette.background.default,
-  width: `${collapsed ? '50px' : '161px'}`,
+  width: `${collapsed ? '58px' : '161px'}`,
   [theme.breakpoints.down('lg')]: {
     width: `${collapsed ? '50px' : '136px'}`,
   },
@@ -21,33 +22,30 @@ export const SideNavComponent = styled(Box)(({ theme, collapsed }: any) => ({
   },
 }));
 
-export const SideNavIconComponent: any = styled(ListItem)(({ theme , collapsed}: any) => ({
+export const SideNavIconComponent: any = styled(ListItem)(({ theme , collapsed }: any) => ({
   height: '60px',
-  width: `${collapsed ? '75px' : '161px'}`,
+  minWidth: `${collapsed ? '58px' : '161px'}`,
   boxShadow: 'none',
   color: theme.palette.primary.dark,
   backgroundColor: theme.palette.background.default,
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'center',
-  margin: '8px 0px',
   padding: 0,
   [theme.breakpoints.down('md')]: {
-    margin: '10px 0px',
-    width: `${collapsed ? '75px' : '52px'}`,
-    height: '70px',
+    minWidth: `${collapsed ? '58px' : '58px'}`,
   },
   [theme.breakpoints.down('sm')]: {
-    width: `${collapsed ? '75px' : '355px'}`,
+    minWidth: `${collapsed ? '75px' : '355px'}`,
     justifyContent: 'start',
     margin: '0px 16px',
   },
 }));
 
-export const HoveredElement = styled(Box)(({ theme, themeMode }: any) => ({
+export const HoveredElement: any = styled(Box)(({ theme, themeMode, collapsed }: any) => ({
   display: 'flex',
   padding: '8px',
-  width: '80%',
+  width: `${collapsed ? '48%' : '80%'}`,
   alignItems: 'center',
   "&:hover": {
     backgroundColor: themeMode === "light" ? "#EEEDE9" : "#7D8A8F",
@@ -58,17 +56,17 @@ export const HoveredElement = styled(Box)(({ theme, themeMode }: any) => ({
   },
 }))
 
-export const SideNavIconImageComponent = styled('img')(({ }) => ({
+export const SideNavIconImageComponent: any = styled('img')(({ }) => ({
   height: '28px',
   width: '28px',
   marginRight: '8px',
 }));
 
-export const FontComponent = styled(Typography)(({ theme }) => ({
+export const FontComponent = styled(Typography)(({ theme, collapsed }: any) => ({
   fontSize: '16px',
   fontWeight: 500,
   lineHeight: '19.2px',
-  display: 'flex',
+  display: `${!collapsed ? 'flex' : 'none'}`,
   alignItems: 'center',
   height: '56px',
   [theme.breakpoints.down('lg')]: {
@@ -76,20 +74,20 @@ export const FontComponent = styled(Typography)(({ theme }) => ({
     fontWeight: 500,
     lineHeight: '16.8px',
   },
-  [theme.breakpoints.down('md')]: {
-    display: 'none'
-  },
+  // [theme.breakpoints.down('md')]: {
+  //   display: 'none'
+  // },
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
   },
 
 }));
 
-export const MenuFontComponent = styled(Typography)(({ theme }) => ({
+export const MenuFontComponent = styled(Typography)(({ theme, collapsed }: any) => ({
   fontSize: '14px',
   fontWeight: 500,
   lineHeight: '19.2px',
-  display: 'flex',
+  display: `${!collapsed ? 'flex' : 'none'}`,
   alignItems: 'center',
   height: '56px',
   [theme.breakpoints.down('lg')]: {
@@ -97,9 +95,9 @@ export const MenuFontComponent = styled(Typography)(({ theme }) => ({
     fontWeight: 500,
     lineHeight: '16.8px',
   },
-  [theme.breakpoints.down('md')]: {
-    display: 'none'
-  },
+  // [theme.breakpoints.down('md')]: {
+  //   display: 'none'
+  // },
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
   },
@@ -131,20 +129,6 @@ export const SideBarWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const SideBarInnerWrapper = styled(Box)(({ theme, collapsed }: any) => ({
-  mintWidth: `${collapsed ? '55px' : '161px'}`,
-  [theme.breakpoints.down('lg')]: {
-    mintWidth: `${collapsed ? '55px' : '136px'}`,
-  },
-  [theme.breakpoints.down('md')]: {
-    mintWidth: `${collapsed ? '50px' : '50px'}`,
-    
-  },
-  [theme.breakpoints.down('sm')]: {
-    mintWidth: `${collapsed ? '50px' : '355px'}`,
-
-  },
-}));
 
 export const OutletWrapper = styled(Box)(({ theme }) => ({
   minWidth: 'calc(100% - 420px)',

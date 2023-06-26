@@ -14,7 +14,7 @@ const HeaderMobile = (props :any) => {
             </Box>
             <Box>
                 <Typography sx={{fontSize: '20px', fontWeight: 600, lineHeight: '28px', fontFamily: 'Bai Jamjuree'}}>
-                    {pathname === '/home' ? 'Home' : pathname === '/settings' ? 'Setting' : pathname === '/archive' ? 'Archive' : 'Account'}
+                    {pathname === '/loans' ? 'Home' : pathname === '/settings' ? 'Setting' : pathname === '/archive' ? 'Archive' : 'Account'}
                     </Typography> 
             </Box>
         </HeaderMobileWrapper>

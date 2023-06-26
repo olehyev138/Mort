@@ -16,13 +16,13 @@ export const InnerSideBarWrapper = styled(Box)<any>(({ theme, pathname }: any) =
     padding: '16px 0px',
     borderRight: `1px solid ${alpha(theme.palette.text.primary, 0.20)}`,
     [theme.breakpoints.down('lg')]: {
-        width: `${pathname === '/home' ? '260px' : '185px'}`,
+        width: `${(pathname === '/loans' || pathname === '/fnma' || pathname === '/fhlmc' || pathname === '/fha') ? '260px' : '185px'}`,
     },
     [theme.breakpoints.down('md')]: {
-        width: `${pathname === '/home' ? '199px' : '149px'}`,
+        width: `${(pathname === '/loans' || pathname === '/fnma' || pathname === '/fhlmc' || pathname === '/fha') ? '199px' : '149px'}`,
     },
     [theme.breakpoints.down('sm')]: {
-        width: `${pathname === '/home' ? '100%' : '0px'}`,
+        width: `${(pathname === '/loans' || pathname === '/fnma' || pathname === '/fhlmc' || pathname === '/fha') ? '100%' : '0px'}`,
         height: 'calc(100vh - 208px)',
     },
 }));
@@ -80,10 +80,10 @@ export const InnerSideBarButton = styled(ListItem)<any>(({ theme, pathname }: an
     justifyContent: 'space-between',
     cursor: 'pointer',
     [theme.breakpoints.down('lg')]: {
-        width: `${pathname === '/home' ? '250px' : '178px'}`,
+        width: `${(pathname === '/loans' || pathname === '/fnma' || pathname === '/fhlmc' || pathname === '/fha') ? '250px' : '178px'}`,
     },
     [theme.breakpoints.down('md')]: {
-        width: `${pathname === '/home' ? '180px' : '148px'}`,
+        width: `${(pathname === '/loans' || pathname === '/fnma' || pathname === '/fhlmc' || pathname === '/fha') ? '180px' : '148px'}`,
         padding: '0px 0px',
     },
     [theme.breakpoints.down('sm')]: {
@@ -107,17 +107,17 @@ export const TypographyBox: any = styled(Typography)(({ theme, active }: any) =>
     }
 }));
 
-export const TypographyHeading = styled(Typography)(({ theme }) => ({
+export const TypographyHeading = styled(Typography)(({ theme, active }: any) => ({
     color: '#FE6A57',
     fontSize: '18px',
     lineHeight: '25.2px',
-    fontWeight: 500,
+    fontWeight: 600,
     marginTop: '12px',
-    fontFamily: 'Bai Jamjuree' ,
+    fontFamily: 'Roboto Slab' ,
     [theme.breakpoints.down('lg')]: {
         fontSize: '16px',
         lineHeight: '22.4px',
-        fontWeight: 500,
+        fontWeight: `${active ? 600 : 500}`,
     },
 }));
 
@@ -143,7 +143,7 @@ export const Typographyid = styled(Typography)(({ theme }) => ({
 export const IconWrapper = styled(Box)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
-    width: '25%',
+    width: '34%',
     marginTop: '6px',
     [theme.breakpoints.down('lg')]: {
         width: '27%',
@@ -159,8 +159,9 @@ export const IconWrapper = styled(Box)(({ theme }) => ({
 export const TypographyHeadingSimple = styled(Typography)(({ theme }) => ({
     fontSize: '18px',
     lineHeight: '25.2px',
-    fontWeight: 500,
+    fontWeight: 600,
     marginTop: '12px',
+    fontFamily: 'Roboto Slab',
     [theme.breakpoints.down('md')]: {
         fontSize: '14px',
         lineHeight: '22.4px',

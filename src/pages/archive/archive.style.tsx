@@ -49,13 +49,13 @@ export const ArchivePageBgMobile = styled(Box)<any>(({ theme, themeMode }: any) 
   },
   [theme.breakpoints.down('sm')]: {
     minWidth: 'calc(100vw - 0px)',
-    overflowY: 'scroll',
+    overflowY: 'auto',
     height: 'calc(100vh - 84px)'
   },
 }));
 
-export const ListItemWrapper: any = styled(ListItem)(({ theme }) => ({
-  background: theme.palette.background.paper,
+export const ListItemWrapper: any = styled(ListItem)(({ theme, themeMode }: any) => ({
+  background: `${themeMode === 'light' ? theme.palette.background.paper : '#465359'}`,
   borderRadius: '16px',
   marginBottom: '16px',
   minHeight: '68px',
@@ -69,14 +69,14 @@ export const ListItemWrapper: any = styled(ListItem)(({ theme }) => ({
   },
 }));
 
-export const MainDiv = styled(Box)(({ theme }) => ({
+export const MainDiv = styled(Box)(({ theme, themeMode }: any) => ({
   margin: '30px auto',
   padding: '30px 28px',
   width: '48vw',
-  background: theme.palette.background.default,
+  background: `${themeMode === 'light' ? theme.palette.background.default : '#2E3D43'}`,
   borderRadius: '16px',
   height: 'calc(100vh - 220px)',
-  overflowY: 'scroll',
+  overflowY: 'auto',
   overflowX: 'hidden',
   [theme.breakpoints.down('sm')]: {
     width: '70vw',
@@ -97,7 +97,7 @@ export const ListItemTextStyle = styled(Typography)(({ theme }) => ({
 
 export const MainListItem = styled(List)(({ theme }) => ({
   marginTop: '24px',
-  overflowY: 'scroll'
+  overflowY: 'auto'
 }));
 
 export const ListText = styled(ListItemText)(({ theme }) => ({

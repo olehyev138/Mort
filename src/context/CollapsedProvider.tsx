@@ -21,7 +21,6 @@ const CollapsedProvider: any = ({ children }: CollapsedProviderProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const handleClick = () => {
         setCollapsed(!collapsed);
-        console.log('Clicked');
     };
     const collapsedProviderValue = React.useMemo(() => ({
         collapsed,

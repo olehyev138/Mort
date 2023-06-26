@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
    Box, Typography, Unstable_Grid2 as Grid2, Popover, List, ListItem, ListItemButton,
@@ -22,6 +22,7 @@ const Header = ({ props }: any) => {
    const navigate = useNavigate();
    const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
    const [openModal,setOpenModal] = useState(false);
+   const loanRef = useRef<HTMLButtonElement>(null);
    const handleopenModal = ()=> {
       setOpenModal(!openModal);
     }
@@ -61,7 +62,7 @@ const Header = ({ props }: any) => {
                      <ButtonComponent>
                         <ButtonInnerComponent>
                            {/* @ts-ignore */}
-                           <HeaderButton variant="contained" active={location.pathname.includes('/loans')} themeMode={themeMode} onClick={() => navigate("/loans")}>
+                           <HeaderButton variant="contained" active={location.pathname.includes('/loans')} themeMode={themeMode} onClick={() => navigate("/loans")} ref={loanRef}>
                               LOANS
                            </HeaderButton>
                            {/* @ts-ignore */}
@@ -83,8 +84,8 @@ const Header = ({ props }: any) => {
                      </ButtonComponent>
                   </Grid2>
                   <Grid2 md={2.7} xs={1.7}>
-                     <OuterBox onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e)}>
-                        <UsernameBox>
+                     <OuterBox>
+                        <UsernameBox onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e)}>
                            <Username>{user?.name}</Username>
                            <Typography sx={{ fontFamily: "'DM Sans', sans-serif" }}>Super Admin</Typography>
                         </UsernameBox>
@@ -103,8 +104,15 @@ const Header = ({ props }: any) => {
                   onClose={handleClose}
                   anchorOrigin={{
                      vertical: 'bottom',
-                     horizontal: 'right',
+                     horizontal: 'left',
                   }}
+                  transformOrigin={{
+                     vertical: 'top',
+                     horizontal: 'left',
+                   }}
+                   sx={{
+                     marginTop: '14px'
+                   }}
                >
                   <List>
                      <ListItem disablePadding>

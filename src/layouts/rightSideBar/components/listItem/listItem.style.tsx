@@ -8,11 +8,13 @@ export const MainBox = styled(Box)(({theme})=>({
     padding:'10px '
 }));
 
-export const CustomListItem: any = styled(ListItem)(({ theme, active}: any)=>({
+export const CustomListItem: any = styled(ListItem)(({ theme, active, themeMode}: any)=>({
     padding: '24px 0px',
     cursor: 'pointer',
     flexDirection: 'column',
-    background: `${active ? theme.palette.background.default : 'transparent'}`
+    background: `${active ? (themeMode === 'light' ? theme.palette.background.default : '#2E3D43') : 'transparent'}`, 
+    borderBottom: `${active ? '3px solid #52BFF9' : 'transparent'}`,
+
 }));
 
 export const ArrowIcon = styled('img')(({theme})=>({

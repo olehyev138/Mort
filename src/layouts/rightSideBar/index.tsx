@@ -71,7 +71,7 @@ const RightNavBar = () => {
             <Box
               sx={{
                 height: 'calc(100vh - 254px)',
-                overflow: 'scroll'
+                overflow: 'auto'
               }}
             >
             <ButtonBoxWrapper>

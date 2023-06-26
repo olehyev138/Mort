@@ -103,8 +103,8 @@ export const QuestionWrapper = styled(Box)(({ theme }) => ({
 
 }));
 
-export const QuestionInnerWrapper = styled(Box)(({ theme }) => ({
-  background: theme.palette.background.paper,
+export const QuestionInnerWrapper = styled(Box)(({ theme, themeMode }: any) => ({
+  background: `${themeMode === 'light' ? theme.palette.background.paper : '#2E3D43'}`,
   padding: '13px 16px 13px 16px',
   borderRadius: '10px',
   width: '92%'
@@ -194,10 +194,15 @@ export const BodySubText = styled(Typography)(({ theme }) => ({
 }));
 
 export const MsgBoxWrapper = styled(Box)(({ theme }) => ({
-  height: 'calc(100vh - 335px)',
-  overflow: 'auto',
+  overflow: 'hidden',
   maxWidth: '1000px',
   margin: '0 auto',
+}));
+
+export const MsgMain = styled(Box)(({ theme }) => ({
+  height: 'calc(100vh - 335px)',
+  overflow: 'auto',
+  width: '100%',
 }));
 
 export const PaperWrapper = styled(Paper)(({ theme }) => ({
@@ -506,7 +511,7 @@ export const SuggestionContainer = styled(Box)(({ theme }) => ({
 
 export const SuggestionInnerWrapper = styled(Box)(({ theme }) => ({
   width: '85%',
-  margin: 'auto 51px',
+  margin: 'auto 40px',
   maxWidth: '695px',
   overflowX: 'auto'
 }));
@@ -515,12 +520,13 @@ export const Text = styled(Typography)(({ theme }) => ({
   fontSize: '16px',
   fontWeight: 500,
   lineHeight: '19.2px',
+  marginBottom: '15px'
 }));
 
 export const SuggestionBtnWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
-  marginBottom: '10px'
+  marginBottom: '17px'
 }));
 
 

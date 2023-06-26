@@ -15,7 +15,7 @@ const InnerSideNav = (props: any) => {
     const location = useLocation();
     const navigate = useNavigate();
     const [ activeList, setActiveList ] = useState('');
-    const listItems = location.pathname === '/home' ? homeDummyData.home : settingsDummyData.settings;
+    const listItems = (location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') ? homeDummyData.home : settingsDummyData.settings;
     const {
         open,
         handleOpen,
@@ -24,7 +24,7 @@ const InnerSideNav = (props: any) => {
     } = props;
 
     useEffect(() => {
-        if(location.pathname.includes('/home'))
+        if(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha')
         {
             setActiveList(homeDummyData.home[0].title);
         } else if (location.pathname === '/account')
@@ -42,6 +42,9 @@ const InnerSideNav = (props: any) => {
         else if(location.pathname === '/notification'){
             setActiveList(settingsDummyData.settings[4].title);
         }
+        else if(location.pathname === '/billing'){
+            setActiveList(settingsDummyData.settings[2].title);
+        }
         else {
             setActiveList(homeDummyData.home[0].title);   
         }
@@ -58,7 +61,7 @@ const InnerSideNav = (props: any) => {
     return(
         <>
             <InnerSideBarWrapper pathname={location.pathname}>
-                {location.pathname.includes('/home') && (
+                {(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') && (
                     <ButtonWrapper startIcon={<PlusIcon src="/images/svgs/add.svg" />} onClick={() => handleOpen()}>
                         New Loan
                     </ButtonWrapper>
@@ -68,10 +71,11 @@ const InnerSideNav = (props: any) => {
                         <>
                             <InnerSideBarButton onClick={() => handleClick(item)} pathname={location.pathname}>
                                 <TypographyBox active={activeList === item.title}>
-                                    {activeList === item.title ? <TypographyHeading>{item.title}</TypographyHeading> : <TypographyHeadingSimple>{item.title}</TypographyHeadingSimple>}
-                                    {location.pathname.includes('/home') && (<Typographyid>{item.id}</Typographyid>)}
+                                    {/* @ts-ignore */}
+                                    {activeList === item.title ? <TypographyHeading active={activeList === item.title}>{item.title}</TypographyHeading> : <TypographyHeadingSimple>{item.title}</TypographyHeadingSimple>}
+                                    {(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') && (<Typographyid>{item.id}</Typographyid>)}
                                 </TypographyBox>
-                                {location.pathname === '/home' && activeList === item.title && (
+                                {(location.pathname === '/loans' || location.pathname === '/fnma' || location.pathname === '/fhlmc' || location.pathname === '/fha') && activeList === item.title && (
                                     <IconWrapper>
                                          <Tooltip
                                             title="Archive"

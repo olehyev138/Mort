@@ -43,7 +43,7 @@ export const FormGroupWrapper = styled(FormGroup)(({ theme }) => ({
 export const TrashIconModalWrapper = styled(Box)(({ theme, themeMode }: any) => ({
   display: 'flex',
   justifyContent: 'center',
-  backgroundColor: themeMode === "light"? "#F7F6F4" : "#465359",
+  backgroundColor: themeMode === "light" ? "#F7F6F4" : "#465359",
   height: '80px',
   width: '80px',
   margin: '0 auto',

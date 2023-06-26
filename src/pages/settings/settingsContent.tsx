@@ -21,7 +21,8 @@ const SettingsContent = () => {
         {/* @ts-ignore */}
             <SettingsPageBg themeMode={themeMode} collapsed={collapsed}>
                 <CardWrapperMain>
-                    <CardWrapper>
+                    {/* @ts-ignore */}
+                    <CardWrapper themeMode={themeMode}>
                         <CardContentWrapper >
                             <CardTitle> Account </CardTitle>
                             <TextFieldWrapper>

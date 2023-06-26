@@ -70,17 +70,20 @@ const ArchivePage = () => {
                     </ArchivePageInnerNav>
                     {/* @ts-ignore */}
                     <ArchivePageBg themeMode={themeMode} collapsed={collapsed}>
-                        <MainDiv>
+                        {/* @ts-ignore */}
+                        <MainDiv themeMode={themeMode}>
                             <Heading>
                                 Archive
                             </Heading>
                             <Box>
                                 <MainListItem >
                                     {years.map((item: any, id: number) => (
-                                        <ListItemWrapper>
-                                            <ListItemButton onClick={() => clickHandler(id)}>
+                                        <>
+                                        {/* @ts-ignore */}
+                                        <ListItemWrapper themeMode={themeMode}>
+                                            <ListItemButton onClick={() => clickHandler(id)} sx={{ height: '55px' }}>
                                                 <ListItemIcon>
-                                                    {activeYear[id] ? <ArrowDownIcon /> : <ArrowIcon />}
+                                                    {activeYear[id] ? <div style={{ marginTop: '17px'}}><ArrowDownIcon /></div> : <ArrowIcon />}
                                                 </ListItemIcon>
                                                 <ListItemTitle variant="body1"> {item.title} </ListItemTitle>
                                             </ListItemButton>
@@ -116,6 +119,7 @@ const ArchivePage = () => {
                                                 </MonthListWrapper>
                                             )}
                                         </ListItemWrapper>
+                                        </>
                                     ))}
 
                                 </MainListItem>

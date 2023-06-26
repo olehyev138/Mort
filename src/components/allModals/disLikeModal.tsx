@@ -27,9 +27,9 @@ const DisLikeModal = ({openDisLikeFeedBack, handleCloseDisLikeFeedBack} :any)=>
                 <ModalBodyWrapper header={true}>
                     <ModalTextField multiline placeholder="What do you like about the response?" minRows={10} />
                     <FormGroupWrapper>
-                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This is harmfull/unsafe" />
-                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This isn' true" />
-                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This isn' true" />
+                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This is harmfull/unsafe" checked />
+                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This isn' true" checked/>
+                        <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="This isn' true" checked/>
                     </FormGroupWrapper>
                 </ModalBodyWrapper>
             </ModalBox>

@@ -9,7 +9,7 @@ const MiddlePage = (props:any) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setTimeout(() => navigate('/home'), 1000)
+        setTimeout(() => navigate('/loans'), 1000)
     }, [])
 
     return (

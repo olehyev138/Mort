@@ -79,6 +79,7 @@ export const HeaderButton = styled(Button)(({ theme, active, themeMode }: any) =
   borderRight: `1px solid ${alpha("#03363D", 0.20)} `,
   borderRadius: 0,
   fontFamily: 'Roboto Slab',
+  fontWeight: `${active ? 500 : 300}`,
   backgroundColor: `${active ? `${themeMode === 'light' ? theme.palette.background.default : '#7D8A8F'}`: `${themeMode === 'light' ? '#FBFCFC' : '#465359'}`}`,
   borderBottom: `${active ? `1px solid ${theme.palette.background.default}` : `1px solid ${alpha(theme.palette.text.primary, 0.20)}`}`,
   "&:hover": {

@@ -37,13 +37,13 @@ export const CardWrapperMain = styled(Box)(({ theme }) => ({
   justifyContent: 'center'
 }));
 
-export const CardWrapper = styled(Card)(({ theme }) => ({
+export const CardWrapper = styled(Card)(({ theme, themeMode }: any) => ({
   marginTop: '30px',
   width: 740,
   height: 'calc(100vh - 160px)',
-  overflowY: 'scroll',
+  overflowY: 'auto',
   borderRadius: '16px',
-  background: theme.palette.background.paper,
+  background: `${themeMode === 'light' ? theme.palette.background.paper : '#2E3D43'}`,
   [theme.breakpoints.down('lg')]: {
     width: '85%'
   },

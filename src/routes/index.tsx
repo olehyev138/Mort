@@ -20,11 +20,7 @@ const Router = () => {
     {
       element: <DashboardLayout />,
       children: [
-        { path: '/', element: <Navigate to="/home" replace />, index: true },
-        {
-          path: 'home',
-          element: <Home />
-        },
+        { path: '/', element: <Navigate to="/loans" replace />, index: true },
         {
           path: '/:header',
           element: <Home />
@@ -54,7 +50,11 @@ const Router = () => {
         {
           path: 'integration',
           element: <IntegrationPage />
-        }
+        },
+        {
+          path: 'billing',
+          element: <IntegrationPage />
+        },
       ],
     },
     {

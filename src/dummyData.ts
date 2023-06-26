@@ -50,7 +50,7 @@ export const settingsDummyData = {
     },
     {
         title: "Billing",
-        url: '#'
+        url: '/billing'
     },
     {
         title: "Integrations",

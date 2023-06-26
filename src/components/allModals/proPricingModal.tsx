@@ -69,7 +69,7 @@ const ProPricingModal = ({openDelete, handleCloseDelete} :any) => {
                                     </PackagePrice>
                                     </Box>
                                     <FormGroupWrapperPrice>
-                                            <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="Unlimited mortgage applications per month" />
+                                            <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="Unlimited mortgage applications per month"  />
                                             <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="Full access to mortgage dashboard features" />
                                             <FormControlLabel control={ <Checkbox icon={<UncheckIcon />} checkedIcon={<CheckIcon />}/> } label="Email and phone support" />
                                     </FormGroupWrapperPrice>

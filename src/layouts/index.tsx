@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material';
 import Header from './header';
 import { Outlet } from 'react-router';
 import {
-  InnerHeaderWrapper, SideBarWrapper, SideBarInnerWrapper, OutletWrapper,
+  InnerHeaderWrapper, SideBarWrapper, OutletWrapper,
   MainWrapper
 } from './sidebar/sidebar.style';
 import useSettings from '../hook/useSettings';
@@ -43,9 +43,7 @@ function DashboardLayout() {
           <Header />
           <SideBarWrapper>
             {/* @ts-ignore */}
-            <SideBarInnerWrapper collapsed={collapsed}>
               <SideBarMobile />
-            </SideBarInnerWrapper>
           </SideBarWrapper>
           <OutletWrapper>
             <Outlet />
@@ -57,9 +55,7 @@ function DashboardLayout() {
             <Header />
           </InnerHeaderWrapper>
           <SideBarWrapper >
-            <SideBarInnerWrapper >
               <SideBar />
-            </SideBarInnerWrapper>
             <OutletWrapper >
               <Outlet />
             </OutletWrapper>
